@@ -1,0 +1,70 @@
+body {
+    background: #f1f1f1;
+    margin: 2rem;
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 1rem auto;
+    box-shadow: 3px 7px 50px #000;
+    margin-bottom: 1.6%;
+    background: #ffffff;
+    line-height: 1.4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    overflow: hidden;   
+    width: 60%;
+}
+
+.blog-card a {
+    color: #333;
+}
+
+.author {
+    margin: 1rem;
+    text-align: center;
+}
+
+.author-photo {
+    height: 5rem;
+    width: 5rem;
+}
+
+.author-details {
+
+}
+
+.blog-post {
+
+}
+
+.blog-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 1rem;
+}
+
+.blog-date {
+    display: inline-block;
+    text-align: right;   
+    padding-right: 1rem;
+    font-size: 0.5rem;
+}
+
+.blog-post h1 {
+    margin: 0px;
+    display: inline-block;
+    text-align: left;
+}
+
+.blog-post h2 {
+    text-transform: uppercase;
+    color: #999;
+    margin: 0px;
+}
+
+.blog-content {
+    padding-right: 1rem;
+}
+
