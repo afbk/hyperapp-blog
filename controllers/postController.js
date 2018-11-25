@@ -1,7 +1,9 @@
 const Post = require('../models/postModel.js')
+require('./dbController.js')
+const mongoose = require('mongoose')
 
 //Create a blog-post
-function createPost(author, author_url, title, subtitle, text, ) {
+async function createPost(author, author_url, title, subtitle, text, ) {
     const post = new Post({
         author: author,
         author_url: author_url,
@@ -14,10 +16,10 @@ function createPost(author, author_url, title, subtitle, text, ) {
     return savedPost
 }
 
-
 // Read post
 async function readPost(id) {
-
+    const read = await Post.findOne({ _id: id }).catch(err => console.error(err.message))
+    return read
 }
 // Update post
 async function updatePost(id, text, title, subtitle, hidden) {
@@ -25,7 +27,7 @@ async function updatePost(id, text, title, subtitle, hidden) {
 }
 
 // Hide Post
-async function hidePost(id)
+async function hidePost(id) { }
 
 module.exports = {
     createPost,
