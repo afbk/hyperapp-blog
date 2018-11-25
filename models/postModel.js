@@ -8,7 +8,6 @@ const postSchema = new mongoose.Schema({
     subtitle: String,
     date: { type: Date, default: Date.now },
     hidden: Boolean,
-    reported: Number
 })
 
 module.exports = mongoose.model('Post', postSchema)
