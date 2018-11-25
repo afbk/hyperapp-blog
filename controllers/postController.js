@@ -1,6 +1,6 @@
 const Post = require('../models/postModel.js')
 require('./dbController.js')
-const mongoose = require('mongoose')
+
 
 //Create a blog-post
 async function createPost(author, author_url, title, subtitle, text, ) {
@@ -10,7 +10,7 @@ async function createPost(author, author_url, title, subtitle, text, ) {
         title: title,
         subtitle: subtitle,
         text: text,
-        hidden: false
+        hidden: false,
     })
 
     const savedPost = await post.save()

@@ -4,8 +4,13 @@ const commentSchema = new mongoose.Schema({
     text: String,
     author: String,
     date: { type: Date, default: Date.now },
-    hidden: Boolean,
-    reported: Number
+    hidden: { type: Boolean, default: false },
+    reported: { type: Number, default: 0 }
 })
 
-module.exports = mongoose.model('Comment', commentSchema)
+const Comment = mongoose.model('Comment', commentSchema)
+
+module.exports = {
+    Comment,
+    commentSchema
+}
