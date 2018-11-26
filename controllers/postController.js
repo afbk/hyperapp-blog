@@ -23,6 +23,14 @@ async function readPost(id) {
     return read
 }
 
+//Get all posts, sorted by newest post first
+async function readAllPostsByNewest() {
+    const read = await Post.find({}).sort('date')
+    return read
+}
+
+readAllPostsByNewest().then(x => console.log(x))
+
 // Update post
 async function updatePost(id, text, title, subtitle, hidden) {
     const updatePost = await Post.findOneAndUpdate({ _id: id },
