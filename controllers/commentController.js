@@ -28,6 +28,13 @@ async function readComment(postId, commentId) {
     return readComment
 }
 
+//Read all comments from a given, parent post returned as an array with oldest comment first by default
+async function readAllCommentsFromPost(postId) {
+    const readPost = await postController.readPost(postId)
+    const readComments = readPost.comments.sort()
+    return readComments
+}
+
 //Update comment
 async function updateComment(postId, commentId, text, hidden) {
     //Gets parent post and subdocument belonging to commentId

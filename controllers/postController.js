@@ -29,8 +29,6 @@ async function readAllPostsByNewest() {
     return read
 }
 
-readAllPostsByNewest().then(x => console.log(x))
-
 // Update post
 async function updatePost(id, text, title, subtitle, hidden) {
     const updatePost = await Post.findOneAndUpdate({ _id: id },
