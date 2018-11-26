@@ -6,10 +6,12 @@ require('./dbController.js')
 
 //Create a comment and push it to blogpost as entry in array
 async function createComment(postId, author, text) {
+    //Creates new comment object
     const comment = new commentModel.Comment({
         author: author,
         text: text,
     })
+    //Finds parent and pushes comment to the comments array in parent
     const post = await Post.findOne({ _id: postId })
         .then(x => {
             x.comments.push(comment)
@@ -19,7 +21,7 @@ async function createComment(postId, author, text) {
     return post
 }
 
-//Read comment from a given blogpost
+//Read comment from a given, parent blogpost
 async function readComment(postId, commentId) {
     const readPost = await postController.readPost(postId)
     const readComment = readPost.comments.id(commentId)
@@ -27,17 +29,20 @@ async function readComment(postId, commentId) {
 }
 
 //Update comment
-/* async function updateComment(postId, commentId, text, hidden) {
+async function updateComment(postId, commentId, text, hidden) {
+    //Gets parent post and subdocument belonging to commentId
     const readPost = await postController.readPost(postId)
     const readComment = readPost.comments.id(commentId)
-    readComment.text.set(text)
-    readComment.hidden.set(hidden)
+    //Sets the new states
+    readComment.set({ hidden: hidden, text: text })
+    //Saves the parent document with subdocument
     readPost.save()
-    return readComment
+    return readPost
 }
-updateComment('5bfad5ac1bf37512f899edf9', '5bfafd0850a9c91d32a3ec83', 'opdateret', true).then(x => confirm.log(x)) */
 
-//Hide comment
+updateComment('5bfad5ac1bf37512f899edf9', '5bfafd0850a9c91d32a3ec83', 'opdateret', true)//.then(x => console.log(x))
+
+//TODO: Hide comment WORKAROUND: Use updateComment to hide.
 async function hideComment(id) { }
 
 module.exports = {
