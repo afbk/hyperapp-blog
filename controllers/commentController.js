@@ -40,8 +40,6 @@ async function updateComment(postId, commentId, text, hidden) {
     return readPost
 }
 
-updateComment('5bfad5ac1bf37512f899edf9', '5bfafd0850a9c91d32a3ec83', 'opdateret', true)//.then(x => console.log(x))
-
 //TODO: Hide comment WORKAROUND: Use updateComment to hide.
 async function hideComment(id) { }
 
